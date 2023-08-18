@@ -46,7 +46,7 @@ const Search = () => {
                 {countries?.map((country) => (
                     <li
                         key={country?.name}
-                        className={`p-2 text-sm hover:bg-sky-600 hover:text-white
+                        className={`p-2 text-sm hover:bg-sky-900 hover:text-white
               ${country?.name?.toLowerCase() === selected?.toLowerCase() &&
                             "bg-sky-600 text-white"
                             }

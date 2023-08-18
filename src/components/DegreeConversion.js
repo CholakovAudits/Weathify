@@ -1,8 +1,6 @@
-// import React from 'react';
-
 // const DegreeConversion = () => {
 //     return (
-//         <div className="flex flex-row w-1/4 ">
+//         <div className="flex flex-row justify-center my-9">
 //             <button
 //                 name="celsius"
 //                 className="text-xl text-white font-medium transition ease-out hover:scale-125"

@@ -1,4 +1,4 @@
-const WeatherDetails = ({ icon: Icon, label, value }) => {
+const WeatherDetailsTop = ({ icon: Icon, label, value }) => {
     return (
         <div className="flex font-light text-sm items-center justify-center">
             <Icon size={20} className="mr-1" />
@@ -8,4 +8,4 @@ const WeatherDetails = ({ icon: Icon, label, value }) => {
     )
 }
 
-export default WeatherDetails
+export default WeatherDetailsTop

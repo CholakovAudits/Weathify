@@ -26,8 +26,8 @@ const Search = () => {
                     ? selected?.length > 25
                         ? selected?.substring(0, 25) + "..."
                         : selected
-                    : "Select Country"}
-                <UilAngleDown size={20} />
+                    : "Select City"}
+                <UilAngleDown size={20} className={`${open && "rotate-180"}`} />
             </div>
             <ul
                 className={`bg-white mt-2 overflow-y-auto ${open ? "max-h-60" : "max-h-0"
@@ -39,7 +39,7 @@ const Search = () => {
                         type="text"
                         value={inputValue}
                         onChange={(e) => setInputValue(e.target.value.toLowerCase())}
-                        placeholder="Enter country name"
+                        placeholder="Enter City..."
                         className="placeholder:text-gray-700 p-2 outline-none"
                     />
                 </div>

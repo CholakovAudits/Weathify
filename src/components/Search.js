@@ -16,7 +16,7 @@ const Search = () => {
             });
     }, []);
     return (
-        <div className="w-72 font-medium h-9 mt-1 ">
+        <div className="w-72 font-medium h-9 mt-3 absolute">
             <div
                 onClick={() => setOpen(!open)}
                 className={`bg-white w-full p-2 flex items-center justify-between rounded ${!selected && "text-gray-700"

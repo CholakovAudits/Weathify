@@ -1,5 +1,4 @@
 import React from 'react';
-import Sun from './img/sun.png';
 
 const hourlyForecastArr = [
   { time: "03:30 PM", temperature: "22°" },
@@ -19,7 +18,7 @@ const Forecast = ({ forecastType }) => (
       {hourlyForecastArr.map((forecast, index) => (
         <div key={index} className="flex flex-col items-center justify-center">
           <p className="font-light text-base">{forecast.time}</p>
-          <img src={Sun} alt="Sun" className="w-12 my-1" />
+          <img src='https://openweathermap.org/img/wn/10d@2x.png' alt="Sun" className="w-12 my-1" />
           <p className="font-medium">{forecast.temperature}</p>
         </div>
       ))}

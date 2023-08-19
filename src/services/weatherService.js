@@ -21,7 +21,7 @@ const formatCurrentWeather = (data) => {
         sys: { country, sunrise, sunset },
         weather,
         wind: { speed }
-    } = data
+    } = data;
 
     const { main: details, icon } = weather[0];
 
@@ -41,30 +41,30 @@ const formatCurrentWeather = (data) => {
         details,
         icon,
         speed
-    }
-}
+    };
+};
 
 const formatForecastWeather = (data) => {
     let { timezone, daily, hourly } = data;
 
-    hourly = hourly.slice(1, 6).map(d => {
+    hourly = hourly.slice(1, 6).map((d) => {
         return {
             title: formatToLocalTime(d.dt, timezone, 'hh:mm a'),
             temp: d.temp.day,
             icon: d.weather[0].icon
-        }
+        };
     });
 
-    daily = daily.slice(1, 6).map(d => {
+    daily = daily.slice(1, 6).map((d) => {
         return {
             title: formatToLocalTime(d.dt, timezone, 'ccc'),
             temp: d.temp.day,
             icon: d.weather[0].icon
-        }
+        };
     });
 
     return { timezone, daily, hourly };
-}
+};
 
 const getFormattedWeatherData = async (searchParams) => {
     const formattedCurrentWeather = await getWeatherData('weather', searchParams)
@@ -77,7 +77,7 @@ const getFormattedWeatherData = async (searchParams) => {
         lon,
         exclude: 'current,minutely,alerts',
         units: searchParams.units,
-    }).then(formatForecastWeather)
+    }).then(formatForecastWeather);
 
     return { ...formattedCurrentWeather, ...formattedForecastWeather };
 };
@@ -87,5 +87,7 @@ const formatToLocalTime = (secs, zone, format = "cccc, dd LLL yyyy' | Local time
     .setZone(zone)
     .toFormat(format);
 
-export default getFormattedWeatherData;
+const iconUrl = (iconCode) => `https://openweathermap.org/img/wn/${iconCode}@2x.png`;
 
+export default getFormattedWeatherData;
+export { formatToLocalTime, iconUrl };

@@ -1,5 +1,4 @@
-import React from 'react'
-import Sun from './img/sun.png';
+import React from 'react';
 import { UilTemperature, UilWind, UilTear, UilSun, UilSunset, UilArrowUp, UilArrowDown } from '@iconscout/react-unicons';
 import WeatherDetailsTop from './WeatherDetailsTop';
 import WeatherDetailsBottom from './WeatherDetailsBottom';
@@ -26,7 +25,7 @@ const WeatherInformation = () => {
             </div>
             <div className="flex flex-row items-center justify-between text-white py-3">
                 <img
-                    src={Sun}
+                    src='https://openweathermap.org/img/wn/10d@2x.png'
                     alt="sun"
                     className="w-20"
                 />

@@ -2,10 +2,10 @@ import TimeAndLocation from "./TimeAndLocation";
 import WeatherInformation from "./WeatherInformation";
 import Forecast from "./Forecast";
 
-const Information = () => {
+const Information = ({ weather }) => {
   return (
     <div>
-      <TimeAndLocation />
+      <TimeAndLocation weather={weather} />
       <WeatherInformation />
       <Forecast forecastType="HOURLY" />
       <Forecast forecastType="DAILY" />

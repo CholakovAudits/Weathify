@@ -1,25 +1,39 @@
 import './index.css';
-import Inputs from './components/Inputs';
 import Header from './components/Header';
 import Information from './components/Information/Information';
-import getWeatherData from './services/weatherService';
 import getFormattedWeatherData from './services/weatherService';
+import { useState, useEffect } from 'react';
+import Search from './components/Search';
 
 function App() {
 
-  const fetchWeather = async () => {
-    const data = await getFormattedWeatherData({ q: 'london' });
-    console.log(data);
-  }
-  fetchWeather();
+  const [query, setQuery] = useState({ q: 'sofia' });
+  const [units, setUnits] = useState('metric');
+  const [weather, setWeather] = useState(null);
+
+  useEffect(() => {
+    const fetchWeather = async () => {
+      await getFormattedWeatherData({ ...query, units })
+        .then((data) => {
+          setWeather(data);
+        });
+    };
+
+    fetchWeather();
+  }, [query, units]);
+
 
   return (
     <div
-      className="mx-auto max-w-screen-md mt-1 py-5 px-32 bg-gradient-to-br from-cyan-600 to-blue-600 h-fit shadow-xl shadow-gray-400"
+      className="mx-auto max-w-screen-md mt-1 py-3.5 px-32 bg-gradient-to-br from-cyan-500 to-blue-900 h-fit shadow-xl shadow-gray-400"
     >
       <Header />
-      <Inputs />
-      <Information />
+      <Search />
+      {
+        weather && (
+          <Information weather={weather} />
+        )
+      };
     </div>
   );
 }

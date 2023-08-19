@@ -2,6 +2,7 @@ import React from 'react';
 import { UilTemperature, UilWind, UilTear, UilSun, UilSunset, UilArrowUp, UilArrowDown } from '@iconscout/react-unicons';
 import WeatherDetailsTop from './WeatherDetailsTop';
 import WeatherDetailsBottom from './WeatherDetailsBottom';
+import DegreeConversion from '../DegreeConversion';
 
 const WeatherInformation = () => {
 
@@ -35,6 +36,7 @@ const WeatherInformation = () => {
                     ))}
                 </div>
                 <p className="text-4xl">35°</p>
+                <DegreeConversion />
             </div>
             <div className="flex flex-row items-center justify-center space-x-7 text-white text-sm py-3">
                 {weatherDetailsBottomArr.map((detail, index) => (

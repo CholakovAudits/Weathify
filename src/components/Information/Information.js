@@ -6,7 +6,7 @@ const Information = ({ weather }) => {
   return (
     <div>
       <TimeAndLocation weather={weather} />
-      <WeatherInformation />
+      <WeatherInformation weather={weather} />
       <Forecast forecastType="HOURLY" />
       <Forecast forecastType="DAILY" />
     </div>

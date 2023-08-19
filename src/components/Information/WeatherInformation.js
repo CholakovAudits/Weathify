@@ -3,20 +3,21 @@ import { UilTemperature, UilWind, UilTear, UilSun, UilSunset, UilArrowUp, UilArr
 import WeatherDetailsTop from './WeatherDetailsTop';
 import WeatherDetailsBottom from './WeatherDetailsBottom';
 import DegreeConversion from '../DegreeConversion';
+import { formatToLocalTime } from "../../services/weatherService";
 
-const WeatherInformation = () => {
+const WeatherInformation = ({ weather: { feels_like, humidity, speed, sunrise, sunset, temp_max, temp_min, temp } }) => {
 
     const weatherDetailsBottomArr = [
-        { icon: UilSun, label: "Rise", value: "06:45 AM" },
-        { icon: UilSunset, label: "Set", value: "09:45 PM" },
-        { icon: UilArrowUp, label: "High", value: "38°" },
-        { icon: UilArrowDown, label: "Low", value: "32°" },
+        { icon: UilSun, label: "Rise", value: sunrise },
+        { icon: UilSunset, label: "Set", value: sunset },
+        { icon: UilArrowUp, label: "Max", value: `${temp_max.toFixed()}°` },
+        { icon: UilArrowDown, label: "Min", value: `${temp_min.toFixed()}°` },
     ];
 
     const weatherDetailsTopArr = [
-        { icon: UilTemperature, label: "Real feel", value: "33°" },
-        { icon: UilTear, label: "Humidity", value: "34%" },
-        { icon: UilWind, label: "Wind", value: "3 km/h" },
+        { icon: UilTemperature, label: "Real feel", value: feels_like.toFixed() },
+        { icon: UilTear, label: "Humidity", value: `${humidity}%` },
+        { icon: UilWind, label: "Wind", value: `${speed} km/h` },
     ];
 
     return (
@@ -35,7 +36,7 @@ const WeatherInformation = () => {
                         <WeatherDetailsTop key={index} icon={detail.icon} label={detail.label} value={detail.value} />
                     ))}
                 </div>
-                <p className="text-4xl">35°</p>
+                <p className="text-4xl">{`${temp.toFixed()}°`}</p>
                 <DegreeConversion />
             </div>
             <div className="flex flex-row items-center justify-center space-x-7 text-white text-sm py-3">

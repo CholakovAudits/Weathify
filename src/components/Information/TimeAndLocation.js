@@ -1,4 +1,4 @@
-import { formatToLocalTime } from "../../services/weatherService"
+import { formatToLocalTime } from "../../services/weatherService";
 
 const TimeAndLocation = ({ weather: { dt, timezone, name, country } }) => {
     return (

@@ -3,7 +3,7 @@ const WeatherDetailsBottom = ({ icon: Icon, label, value }) => {
         <div>
             <Icon />
             <p className="font-light">
-                {label}: <span className="font-medium ml-3">{value}</span>
+                {label}: <span className="font-medium ml-2">{value}</span>
             </p>
         </div>
     )

@@ -7,8 +7,8 @@ const Information = ({ weather }) => {
     <div>
       <TimeAndLocation weather={weather} />
       <WeatherInformation weather={weather} />
-      <Forecast forecastType="HOURLY" />
-      <Forecast forecastType="DAILY" />
+      <Forecast forecastType="HOURLY" items={weather.hourly} />
+      <Forecast forecastType="DAILY" items={weather.daily} />
     </div>
   )
 }

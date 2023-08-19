@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { AsyncPaginate } from "react-select-async-paginate";
 import { GEO_API_URL, geoApiOptions } from "../services/weatherService";
+import Refresh from './Refresh';
 
-const Search = ({ onSearchChange }) => {
+const Search = ({ onSearchChange, setRefresh }) => {
     const [search, setSearch] = useState(null);
 
     const handleOnChange = (searchData) => {
@@ -38,6 +39,7 @@ const Search = ({ onSearchChange }) => {
                     onChange={handleOnChange}
                     loadOptions={loadOptions}
                 />
+                <Refresh setRefresh={setRefresh} />
             </div>
         </div >
     );

@@ -3,11 +3,12 @@ import Inputs from './components/Inputs';
 import Header from './components/Header';
 import Information from './components/Information/Information';
 import getWeatherData from './services/weatherService';
+import getFormattedWeatherData from './services/weatherService';
 
 function App() {
 
   const fetchWeather = async () => {
-    const data = await getWeatherData('weather', { q: 'london' });
+    const data = await getFormattedWeatherData({ q: 'london' });
     console.log(data);
   }
   fetchWeather();

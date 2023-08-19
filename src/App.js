@@ -7,7 +7,7 @@ import Search from './components/Search';
 
 function App() {
 
-  const [query, setQuery] = useState({ q: 'sofia' });
+  const [query, setQuery] = useState({ q: 'segovia' });
   const [units, setUnits] = useState('metric');
   const [weather, setWeather] = useState(null);
 
@@ -32,7 +32,7 @@ function App() {
       <Search />
       {
         weather && (
-          <Information weather={weather} />
+          <Information weather={weather} units={units} setUnits={setUnits} />
         )
       };
     </div>

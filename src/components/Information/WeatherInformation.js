@@ -5,7 +5,7 @@ import WeatherDetailsBottom from './WeatherDetailsBottom';
 import DegreeConversion from '../DegreeConversion';
 import { formatToLocalTime, iconUrl } from "../../services/weatherService";
 
-const WeatherInformation = ({ weather: { feels_like, humidity, speed, sunrise, sunset, temp_max, temp_min, temp, details, icon, timezone } }) => {
+const WeatherInformation = ({ weather: { feels_like, humidity, speed, sunrise, sunset, temp_max, temp_min, temp, details, icon, timezone }, units, setUnits }) => {
 
     const weatherDetailsBottomArr = [
         { icon: UilSun, label: "Rise", value: formatToLocalTime(sunrise, timezone, 'hh:mm a') },
@@ -36,7 +36,7 @@ const WeatherInformation = ({ weather: { feels_like, humidity, speed, sunrise, s
                     ))}
                 </div>
                 <p className="text-4xl">{`${temp.toFixed()}°`}</p>
-                <DegreeConversion />
+                <DegreeConversion units={units} setUnits={setUnits} />
             </div>
             <div className="flex flex-row items-center justify-center space-x-7 text-white text-sm py-3">
                 {weatherDetailsBottomArr.map((detail, index) => (

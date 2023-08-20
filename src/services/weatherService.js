@@ -1,6 +1,6 @@
 import { DateTime } from 'luxon';
 
-const API_KEY = 'd71267c8db2c5f2f38dc2aa345a5d187'; //get from https://api.openweathermap.org/
+const API_KEY = ''; //get from https://api.openweathermap.org/
 const BASE_URL = 'https://api.openweathermap.org/data/2.5';
 export const GEO_API_URL = 'https://wft-geo-db.p.rapidapi.com/v1/geo/cities';;
 

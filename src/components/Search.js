@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { AsyncPaginate } from "react-select-async-paginate";
 import { GEO_API_URL, geoApiOptions } from "../services/weatherService";
-import Refresh from './Refresh';
+import Refresh from "./Refresh";
 
 const Search = ({ onSearchChange, setRefresh }) => {
     const [search, setSearch] = useState(null);

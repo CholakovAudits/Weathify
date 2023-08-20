@@ -1,4 +1,4 @@
-import { UilRedo } from '@iconscout/react-unicons'
+import { UilRedo } from "@iconscout/react-unicons";
 
 const Refresh = ({ setRefresh }) => {
     return (

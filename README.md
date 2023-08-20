@@ -98,7 +98,7 @@ npm start
 
 ## Contact
 
-Simeon Cholakov - [@linkedin_handle](https://www.linkedin.com/in/simeon-cholakov/) - simeonstefanovcholakov@gmail.com
+Simeon Cholakov - [@linkedin-simeon-cholakov](https://www.linkedin.com/in/simeon-cholakov/) - simeonstefanovcholakov@gmail.com
 
 Project Link: [Weathify](https://github.com/CholakovAudits/Weathify)
 

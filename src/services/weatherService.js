@@ -1,11 +1,11 @@
-import { DateTime } from 'luxon';
+import { DateTime } from "luxon";
 
-const API_KEY = 'd71267c8db2c5f2f38dc2aa345a5d187'; //get from https://api.openweathermap.org/
-const BASE_URL = 'https://api.openweathermap.org/data/2.5';
-export const GEO_API_URL = 'https://wft-geo-db.p.rapidapi.com/v1/geo/cities';;
+const API_KEY = "d71267c8db2c5f2f38dc2aa345a5d187"; //get from https://api.openweathermap.org/
+const BASE_URL = "https://api.openweathermap.org/data/2.5";
+export const GEO_API_URL = "https://wft-geo-db.p.rapidapi.com/v1/geo/cities";
 
 const getWeatherData = async (infoType, searchParams) => {
-    const url = new URL(BASE_URL + '/' + infoType);
+    const url = new URL(BASE_URL + "/" + infoType);
     url.search = new URLSearchParams({ ...searchParams, appid: API_KEY });
 
     return fetch(url)
@@ -50,7 +50,7 @@ const formatForecastWeather = (data) => {
 
     hourly = hourly.slice(1, 7).map((d) => {
         return {
-            title: formatToLocalTime(d.dt, timezone, 'hh:mm a'),
+            title: formatToLocalTime(d.dt, timezone, "hh:mm a"),
             temp: d.temp,
             icon: d.weather[0].icon
         };
@@ -58,7 +58,7 @@ const formatForecastWeather = (data) => {
 
     daily = daily.slice(1, 7).map((d) => {
         return {
-            title: formatToLocalTime(d.dt, timezone, 'ccc'),
+            title: formatToLocalTime(d.dt, timezone, "ccc"),
             temp: d.temp.day,
             icon: d.weather[0].icon
         };
@@ -68,15 +68,15 @@ const formatForecastWeather = (data) => {
 };
 
 const getFormattedWeatherData = async (searchParams) => {
-    const formattedCurrentWeather = await getWeatherData('weather', searchParams)
+    const formattedCurrentWeather = await getWeatherData("weather", searchParams)
         .then(formatCurrentWeather);
 
     const { lat, lon } = formattedCurrentWeather;
 
-    const formattedForecastWeather = await getWeatherData('onecall', {
+    const formattedForecastWeather = await getWeatherData("onecall", {
         lat,
         lon,
-        exclude: 'current,minutely,alerts',
+        exclude: "current,minutely,alerts",
         units: searchParams.units,
     }).then(formatForecastWeather);
 
@@ -91,10 +91,10 @@ const formatToLocalTime = (secs, zone, format = "cccc, dd LLL yyyy' | Local time
 const iconUrl = (iconCode) => `https://openweathermap.org/img/wn/${iconCode}@2x.png`;
 
 export const geoApiOptions = {
-    method: 'GET',
+    method: "GET",
     headers: {
-        'X-RapidAPI-Key': 'be699ce3e6mshe391e5ea439500fp1626e6jsnc5cbab2a6808',
-        'X-RapidAPI-Host': 'wft-geo-db.p.rapidapi.com'
+        "X-RapidAPI-Key": "be699ce3e6mshe391e5ea439500fp1626e6jsnc5cbab2a6808",
+        "X-RapidAPI-Host": "wft-geo-db.p.rapidapi.com"
     }
 };
 

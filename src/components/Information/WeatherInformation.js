@@ -1,15 +1,15 @@
-import React from 'react';
-import { UilTemperature, UilWind, UilTear, UilSun, UilSunset, UilArrowUp, UilArrowDown } from '@iconscout/react-unicons';
-import WeatherDetailsTop from './WeatherDetailsTop';
-import WeatherDetailsBottom from './WeatherDetailsBottom';
-import DegreeConversion from '../DegreeConversion';
+import React from "react";
+import { UilTemperature, UilWind, UilTear, UilSun, UilSunset, UilArrowUp, UilArrowDown } from "@iconscout/react-unicons";
+import WeatherDetailsTop from "./WeatherDetailsTop";
+import WeatherDetailsBottom from "./WeatherDetailsBottom";
+import DegreeConversion from "../DegreeConversion";
 import { formatToLocalTime, iconUrl } from "../../services/weatherService";
 
 const WeatherInformation = ({ weather: { feels_like, humidity, speed, sunrise, sunset, temp_max, temp_min, temp, details, icon, timezone }, units, setUnits }) => {
 
     const weatherDetailsBottomArr = [
-        { icon: UilSun, label: "Rise", value: formatToLocalTime(sunrise, timezone, 'hh:mm a') },
-        { icon: UilSunset, label: "Set", value: formatToLocalTime(sunset, timezone, 'hh:mm a') },
+        { icon: UilSun, label: "Rise", value: formatToLocalTime(sunrise, timezone, "hh:mm a") },
+        { icon: UilSunset, label: "Set", value: formatToLocalTime(sunset, timezone, "hh:mm a") },
         { icon: UilArrowUp, label: "Max", value: `${temp_max.toFixed()}°` },
         { icon: UilArrowDown, label: "Min", value: `${temp_min.toFixed()}°` },
     ];

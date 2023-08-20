@@ -1,15 +1,15 @@
-import './index.css';
-import Header from './components/Header';
-import Information from './components/Information/Information';
-import { getFormattedWeatherData } from './services/weatherService';
-import { useState, useEffect } from 'react';
-import Search from './components/Search';
-import BG from './img/bg.jpg';
+import "./index.css";
+import Header from "./components/Header";
+import Information from "./components/Information/Information";
+import { getFormattedWeatherData } from "./services/weatherService";
+import { useState, useEffect } from "react";
+import Search from "./components/Search";
+import BG from "./img/bg.jpg";
 
 function App() {
 
-  const [query, setQuery] = useState({ q: 'sofia' });
-  const [units, setUnits] = useState('metric');
+  const [query, setQuery] = useState({ q: "sofia" });
+  const [units, setUnits] = useState("metric");
   const [weather, setWeather] = useState(null);
   const [refresh, setRefresh] = useState(false);
 

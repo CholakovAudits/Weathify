@@ -42,7 +42,7 @@ function App() {
           weather && (
             <Information weather={weather} units={units} setUnits={setUnits} />
           )
-        };
+        }
       </div>
     </div>
   );

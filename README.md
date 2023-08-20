@@ -94,6 +94,127 @@ npm start
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+## Explanation
+
+### App.js:
+
+The `App` component is the main component of the app. It renders the header, the search bar, and the weather information. The `fetchWeather` function is called when the app first loads, and it is also called whenever the user changes the search query. The `useState` hook is used to store the current weather and the user's search query. The `useEffect` hook is used to fetch the weather data when the app first loads and when the user changes the search query.
+
+The `handleOnSearchChange` function is called when the user changes the search query. It updates the query state variable with the new search query.
+
+The `weather && (<Information weather={weather} units={units} setUnits={setUnits} />)` statement checks if the weather state variable is not null. If it is not null, it renders the Information component with the current weather data.
+
+### weatherService.js:
+
+The `weatherService` fetches weather data from the OpenWeatherMap API and the GeoDB Cities API.
+
+The `getFormattedWeatherData` function first calls the `getWeatherData` function to fetch the current weather data for the given location. The `getWeatherData` function makes an HTTP request to the OpenWeatherMap API and returns the response data. The `getFormattedWeatherData` function then calls the `formatCurrentWeather` function to format the current weather data. The `formatCurrentWeather` function extracts the relevant data from the response data and returns an object with the formatted data.
+
+The `getFormattedWeatherData` function then calls the `getWeatherData` function again to fetch the forecast weather data for the given location. The `getWeatherData` function makes an HTTP request to the OpenWeatherMap API and returns the response data. The `getFormattedWeatherData` function then calls the `formatForecastWeather` function to format the forecast weather data. The `formatForecastWeather` function extracts the relevant data from the response data and returns an object with the formatted data.
+
+The `getFormattedWeatherData` function then combines the current weather data and the forecast weather data into a single object and returns it.
+
+The `formatToLocalTime` function takes a Unix timestamp and a time zone as input and returns a formatted string representing the local time for the given timestamp and time zone. The function uses the `luxon` library to do the formatting.
+
+The `iconUrl` function takes a weather condition icon code as input and returns the URL for the icon. The function uses the OpenWeatherMap API icon URL as the base URL and appends the weather condition icon code to the end.
+
+### Search.js:
+
+The `Search` component allows users to search for cities. It uses the `AsyncPaginate` component to load a list of cities that match the user's search query. The `AsyncPaginate` component makes an asynchronous request to the GeoDB Cities API to get the list of cities.
+
+The `handleOnChange` function is called when the user changes the search query. It updates the search state variable with the new search query.
+
+The `loadOptions` function is called by the `AsyncPaginate` component to load the list of cities. It makes an asynchronous request to the GeoDB Cities API with the `minPopulation` and `namePrefix` query parameters. The `minPopulation` query parameter specifies that the cities must have a population of at least 500,000. The `namePrefix` query parameter specifies that the cities must start with the search query string.
+
+The `AsyncPaginate` component renders a dropdown menu with a list of cities that match the user's search query. The user can select a city from the dropdown menu. The `AsyncPaginate` component also has a refresh button. When the user clicks the refresh button, the `Search` component makes a new request to the GeoDB Cities API to get the latest list of cities.
+
+### Refresh.js:
+
+The `Refresh` component renders a refresh button.
+
+When the user clicks the button, the `setRefresh` prop is called. The `setRefresh` prop is used to set the refresh state of the component to true. This cause the component to refresh its data.
+
+### Header.js:
+
+Renders the `WEATHIFY` header.
+
+### DegreeConversion.js:
+
+The `DegreeConversion` component renders a degree conversion button. The button allows the user to switch between Celsius and Fahrenheit.
+
+The `handleUnitsChange` function is called when the user clicks on one of the buttons. The function takes one argument, which is the `e` event object. The `e` event object has a property called `currentTarget`. The `currentTarget` property is the element that was clicked. The `handleUnitsChange` function gets the name of the button that was clicked from the `currentTarget` property. It then checks if the current units are different from the name of the button that was clicked. If they are different, the `handleUnitsChange` function calls the `setUnits` prop to set the new units of measurement.
+
+### WeatherInformation.js:
+
+The `WeatherInformation` component renders weather information. The component uses the `WeatherDetailsTop`(Real feel, Humidity annd Wind) and `WeatherDetailsBottom`(Rise, Set, Max and Min) components to render the top and bottom rows of weather information, respectively. It takes three props:
+
+- `weather`: This prop is the weather data.
+- `units`: This prop is the current unit of measurement. It can be either "metric" or "imperial".
+- `setUnits`: This prop is a function that is used to set the units of measurement.
+
+The `WeatherInformation` component renders the following information:
+
+- The weather condition icon.
+- The current temperature.
+- The real feel temperature.
+- The humidity.
+- The wind speed.
+- The sunrise time.
+- The sunset time.
+- The maximum temperature for the day.
+- The minimum temperature for the day.
+
+### WeatherDetailsTop.js and WeatherDetailsBottom.js:
+
+The `WeatherDetailsTop` and `WeatherDetailsBottom` components are responsible for rendering the top and bottom rows of weather information, respectively.
+
+### TimeAndLocation.js:
+
+The `TimeAndLocation` component renders the time and location of the weather data. The component uses the `formatToLocalTime` function to format the Unix timestamp of the weather data to local time. It takes one prop:
+
+- `weather`: This prop is the weather data.
+
+The `TimeAndLocation` component renders the following information:
+
+- The city name.
+- The country name.
+- The local time.
+
+The city name and country name are rendered using the `name` and `country` props. The local time is rendered using the `formatToLocalTime` function and the `dt` prop.
+
+The `formatToLocalTime` function takes two arguments:
+
+- The Unix timestamp of the weather data.
+- The time zone of the weather data.
+  The `formatToLocalTime` function returns a formatted string representing the local time for the given timestamp and time zone.
+
+### Forecast.js:
+
+The `Forecast` component renders the forecast for a location. It takes two props:
+
+- `forecastType`: This prop is the type of forecast. The possible values are "HOURLY" and "DAILY".
+- `items`: This prop is the list of forecast items.
+
+The `Forecast` component renders a `<div />` element with the following children:
+
+- A heading that indicates the type of forecast.
+- A horizontal rule.
+- A list of forecast items.
+
+Each forecast item is rendered as a `<div />` element with the following children:
+
+- The time of the forecast item.
+- The weather condition for the forecast item.
+- The temperature for the forecast item.
+
+The weather condition is rendered as an icon using the `iconUrl` function. The temperature is rendered as a text string.
+
+### Information.js:
+
+The `Information` component renders the time, weather information, and forecast for a location.
+
+The `TimeAndLocation`, `Forecast` and `WeatherInformation` components are discussed in the previous explanations.
+
 <!-- CONTACT -->
 
 ## Contact

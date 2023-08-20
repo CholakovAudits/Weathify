@@ -62,6 +62,12 @@
 const API_KEY = "ENTER YOUR API";
 ```
 
+4. Start the application
+
+```sh
+npm start
+```
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- USAGE EXAMPLES -->

@@ -4,7 +4,7 @@ import Information from './components/Information/Information';
 import { getFormattedWeatherData } from './services/weatherService';
 import { useState, useEffect } from 'react';
 import Search from './components/Search';
-import BG from './img/bg.jpg'
+import BG from './img/bg.jpg';
 
 function App() {
 

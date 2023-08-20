@@ -15,7 +15,7 @@ const WeatherInformation = ({ weather: { feels_like, humidity, speed, sunrise, s
     ];
 
     const weatherDetailsTopArr = [
-        { icon: UilTemperature, label: "Real feel", value: feels_like.toFixed() },
+        { icon: UilTemperature, label: "Real feel", value: `${feels_like.toFixed()}°` },
         { icon: UilTear, label: "Humidity", value: `${humidity.toFixed()}%` },
         { icon: UilWind, label: "Wind", value: `${speed.toFixed()} km/h` },
     ];

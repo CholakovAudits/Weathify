@@ -9,7 +9,7 @@ const DegreeConversion = ({ units, setUnits }) => {
         <div className="flex flex-row justify-center my-9">
             <button
                 name="metric"
-                className="text-xl text-white font-medium transition ease-out hover:scale-125 hover:text-cyan-400"
+                className="text-xl text-white font-medium transition ease-out hover:scale-125 hover:text-cyan-200"
                 onClick={handleUnitsChange}
             >
                 °C
@@ -17,7 +17,7 @@ const DegreeConversion = ({ units, setUnits }) => {
             <p className="text-xl text-white mx-1 ">|</p>
             <button
                 name="imperial"
-                className="text-xl text-white font-medium transition ease-out hover:scale-125 hover:text-cyan-400"
+                className="text-xl text-white font-medium transition ease-out hover:scale-125 hover:text-cyan-200"
                 onClick={handleUnitsChange}
             >
                 °F

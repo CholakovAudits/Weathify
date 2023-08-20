@@ -4,6 +4,7 @@ import Information from './components/Information/Information';
 import { getFormattedWeatherData } from './services/weatherService';
 import { useState, useEffect } from 'react';
 import Search from './components/Search';
+import BG from './img/bg.jpg'
 
 function App() {
 
@@ -29,16 +30,20 @@ function App() {
 
 
   return (
-    <div
-      className="mx-auto max-w-screen-lg mt-0.5 px-32 bg-gradient-to-br from-cyan-500 to-blue-900 h-fit shadow-4xl shadow-gray-900"
-    >
-      <Header />
-      <Search onSearchChange={handleOnSearchChange} setRefresh={setRefresh} />
-      {
-        weather && (
-          <Information weather={weather} units={units} setUnits={setUnits} />
-        )
-      };
+    <div className="w-full h-screen">
+      <img
+        src={BG}
+        className="top-0 left-0 w-full h-screen object-cover "
+      />
+      <div className="w-full h-screen py-5 px-40 bg-black/20 absolute top-0 left-0">
+        <Header />
+        <Search onSearchChange={handleOnSearchChange} setRefresh={setRefresh} />
+        {
+          weather && (
+            <Information weather={weather} units={units} setUnits={setUnits} />
+          )
+        };
+      </div>
     </div>
   );
 }

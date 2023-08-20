@@ -22,10 +22,10 @@ const WeatherInformation = ({ weather: { feels_like, humidity, speed, sunrise, s
 
     return (
         <div>
-            <div className="flex items-center justify-center py-1 text-xl text-cyan-400">
+            <div className="flex items-center justify-center text-xl text-cyan-400">
                 {details}
             </div>
-            <div className="flex flex-row items-center justify-between text-white py-3">
+            <div className="flex flex-row items-center justify-between text-white">
                 <img
                     src={iconUrl(icon)}
                     className="w-20"
@@ -38,7 +38,7 @@ const WeatherInformation = ({ weather: { feels_like, humidity, speed, sunrise, s
                 <p className="text-4xl">{`${temp.toFixed()}°`}</p>
                 <DegreeConversion units={units} setUnits={setUnits} />
             </div>
-            <div className="flex flex-row items-center justify-center space-x-7 text-white text-sm py-3">
+            <div className="flex flex-row items-center justify-center space-x-20 text-white text-sm py-3">
                 {weatherDetailsBottomArr.map((detail, index) => (
                     <React.Fragment key={index}>
                         <WeatherDetailsBottom icon={detail.icon} label={detail.label} value={detail.value} />

@@ -13,7 +13,7 @@ const Search = ({ onSearchChange, setRefresh }) => {
 
     const loadOptions = async (inputValue) => {
         try {
-            const res = await fetch(`${GEO_API_URL}?minPopulation=100000&namePrefix=${inputValue}`, geoApiOptions);
+            const res = await fetch(`${GEO_API_URL}?minPopulation=500000&namePrefix=${inputValue}`, geoApiOptions); //Search for cities with a population of 500 or more to avoid errors that may occur due to the lack of support for some cities in the OpenWeatherAPI
             const res_1 = await res.json();
             return {
                 options: res_1.data.map((city) => {
